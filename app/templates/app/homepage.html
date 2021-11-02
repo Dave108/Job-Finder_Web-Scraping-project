@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <title>My Courses</title>
+   </head>
+   <body>
+   <br>
+   <br>
+   <h1 class="text-center">Web Scraping using <em>Beautiful soup</em></h1>
+      <div class="card container" id="card-python-for-beginners" >
+         <div class="card-header">
+            Job finder using scraping on TimesJobs
+         </div>
+         <div class="card-body">
+            <form method="POST" action="">
+               {% csrf_token %}
+
+               <input type="text" name="language" placeholder="Enter language" class="form-control"><br>
+               <input type="text" name="skill" placeholder="Enter some skill" class="form-control"><br>
+               <input type="submit" value="FIND" class="btn btn-sm btn-warning">
+            </form>
+         </div>
+
+         <div class="container">
+            <div class="row">
+            {% for data in list_data %}
+               <div class="col-sm-4 border mx-auto rounded">
+                  <p><strong>{{data.search_for}}</strong></p>
+                  <p>Company: <strong>{{data.company}}</strong></p>
+                  <p>Skills: <strong>{{data.skills}}</strong></p>
+                  <a href="{{data.more_info}}" target="_blank"> More Info</a>
+                  <hr>
+               </div>
+
+            {% endfor %}
+            </div>
+
+         </div>
+      </div>
+   </body>
+</html>
